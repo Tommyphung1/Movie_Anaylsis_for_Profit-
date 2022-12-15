@@ -40,3 +40,12 @@ def cat_ratio (ratio):
         return 2
     else:   #Greater than 3
         return 3    
+    
+###    Function that takes the data frame, takes the movie name if they are also in the top movie list    ###
+def list_of_movies(df_list, top_list):
+    movie_list = []    #Make a empty list
+    for name in df_list:    #For each movie in the list    
+        for top in top_list:    #Check if any of the most popular list are in the second list
+            if(name == top):    #If match
+                movie_list.append(name)     #Add the list
+    return movie_list      
