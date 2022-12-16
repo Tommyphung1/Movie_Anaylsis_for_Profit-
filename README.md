@@ -12,7 +12,7 @@ We created another measurement, ratios for production budget and their domestic 
 ## **Business Understanding**
 1. What aspect of a movie are the most profitable
 2. Does higher production budget influence to a profitable movie?
-3. Which director/s have the best record in making high quality movies?
+3. Which director/s have the best record in making high quality movies? <br>
 The main aspect we care about is whether or not a movie is profitable. 
 Biggest indicator are popular movies so we will be looking at past popular movies and comparing the budget they spent and their gross box office
 This may give insight to what type of movie makes them popular and inturn profitable. We first need to show the correlation between popular movie and profit as we will see later that a 'profitable' movie are always the most popular if we consider the scale of the movie. Investors would be more willing to invest if there is a certain guarentee on the movie's success. 
@@ -32,27 +32,13 @@ IMBD will have the data grouped by directors and their movies average ratings to
 The top genres from the top movies are action, adventure, sci-fi and fantasy while the worst genres are documentary, horror, thriller and comedy. Drama is in a grey area that was found in the top and worst genres for the list of movies. 
 ![The Worst and Best genre](https://github.com/Tommyphung1/Project1/blob/master/data_pictures/Best%20and%20Worst%20Genre.PNG)
 
-INPROGRESS
-![Production Budget vs Ratio] ()
+Production Cost vs Ratio and World Gross Box Office <br>
+![Production Budget vs Ratio](pictures/Budget Graphs.png)
 
 There are exemplary directors whom have movies in our top list of movies. Not only do they have made several films with an average rating of 7 and above, but also experienced with at least 5 movies produced. 
 ![The Best Directors](http://localhost:8888/lab/tree/data_pictures/Top%20Ten%20Directors%20and%20Their%20movies.PNG)
 
-
-
-### **Q1. What aspect of a movie are the most profitable?** <br>
-A1. The best genre a movie can have would be:
-1. Action
-2. Adventure
-3. Sci-fi
-4. Fantasy
-
-### **Q2. Does higher production budget influence to a profitable movie?** <br>
-A2. There is a reasonable range of production budget that would lead to a higher probablity of success. <br>
-That ranges from $20,000,000 and $42,000,000  <br>
-
-### **Q3. Which director/s have the best record in making high quality movies?** <br>
-A3. There are several directors that have made movies in the past that were both popular and profitable
+List Of directors
 1. Anthony Russo
 2. Byron Howard
 3. Chris Williams
@@ -64,8 +50,8 @@ A3. There are several directors that have made movies in the past that were both
 ## Conclusion
 In order for the highest possiblity of making a successful movie, it is recommended for the movie to have these attributes.
 **The movie should have one or a combination of action, adventure, sci-fi or fantasy with a limited drama.** Documentaries should be avoided and keep thriller and horror to a minimum <br>
-**The movie's budget should be limited to at least $20,000,000 though a higher budget results in a reliable profit.** A higher budget, however, will not directly result in a higher ratio but rather a constistent postive net profit during box office. <br>
-**One of the listed directors should be managing if possible.** There were an list of new directors with high average rating but was filtered out due to lack of movies produced. 
+**The movie's budget has a slight positive relationship with gross box office.** Ratios are hard to interpret due to the metris being in the millions, making smaller production budget appear inflatted.
+**One of the listed directors should be managing if possible.** The list contains the most positive rated and experience directors <br>
 
 Although genre would be easy to adapt in a movie, budget and directors aren't as flexible. Budget are usually finite and there wasn't any conclusive evidence stating whether a low budget movie would lead to a profitable movie but rather a higher budget is more likely to get a profitable movie. 
 In the future, it would be an interesting concept to see if leading actors would benifit a movie's profit and see whether a desirable actor is worth the cost to be in a movie to justify it. High demand would potential result in a higher budget. 
@@ -84,18 +70,16 @@ For any additional questions, please contact **Tommy Phung, phungtommy109@gmail.
 
 ## Repository Structure
 
-Describe the structure of your repository and its contents, for example:
-
 ```
 ├── __init__.py                         <- .py file that signals to python these folders contain packages
 ├── README.md                           <- The top-level README for reviewers of this project
 ├── movie_code.ipynb                    <- Narrative documentation of analysis in Jupyter notebook
-├── Project_1.pdf         <- PDF version of project presentation
+├── Project_1.pdf                       <- PDF version of project presentation
 ├── resources
 │   ├── __init__.py                     <- .py file that signals to python these folders contain packages
 │   ├── visualizations.py               <- .py script to create finalized versions of visuals for project
 │   ├── data_preparation.py             <- .py script used to pre-process and clean data
 │   └── eda_notebook.ipynb              <- Notebook containing data exploration
-├── data _picture                       <- Both sourced externally and generated from code
-└── data                                <- Both sourced externally and generated from code
+├── picture                             <- Graphs and plots created by code
+└── ZippedData                          <- Original Code from Websites
 ```
