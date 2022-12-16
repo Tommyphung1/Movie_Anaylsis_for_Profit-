@@ -30,13 +30,13 @@ IMBD will have the data grouped by directors and their movies average ratings to
 
 ## Results
 The top genres from the top movies are action, adventure, sci-fi and fantasy while the worst genres are documentary, horror, thriller and comedy. Drama is in a grey area that was found in the top and worst genres for the list of movies. 
-![The Worst and Best genre](https://github.com/Tommyphung1/Project1/blob/master/data_pictures/Best%20and%20Worst%20Genre.PNG)
+![The Worst and Best genre](https://github.com/Tommyphung1/Project1/blob/21d2a3cde350bf1c2cea1f7d3c798be8e6582f6f/pictures/Best%20and%20Worst%20Genre.PNG)
 
 Production Cost vs Ratio and World Gross Box Office <br>
-![Production Budget vs Ratio](pictures/Budget Graphs.png)
+![Production Budget vs Ratio](https://github.com/Tommyphung1/Project1/blob/21d2a3cde350bf1c2cea1f7d3c798be8e6582f6f/pictures/Budget%20Graphs.png)
 
 There are exemplary directors whom have movies in our top list of movies. Not only do they have made several films with an average rating of 7 and above, but also experienced with at least 5 movies produced. 
-![The Best Directors](http://localhost:8888/lab/tree/data_pictures/Top%20Ten%20Directors%20and%20Their%20movies.PNG)
+![The Best Directors](https://github.com/Tommyphung1/Project1/blob/21d2a3cde350bf1c2cea1f7d3c798be8e6582f6f/pictures/Top%20Ten%20Directors%20and%20Their%20movies.PNG)
 
 List Of directors
 1. Anthony Russo
