@@ -1,9 +1,12 @@
 import matplotlib.pyplot as plt
 import sqlite3 as sql   #for the db file
 import pandas as pd    #Help visualize the data
+import numpy as np
 
+#Function that take in three tuples and plot them on a subplot.
+#The final subplot are plotted together to see the difference between the three lists
 def genre_comparison(title, data1, data2, data3):
-    fig , ax = plt.subplots(2,2, figsize =(15, 10))
+    fig , ax = plt.subplots(2,2, figsize = (15, 10))
     x, y = zip(*data1)
     x2, y2 = zip(*data2)
     x3, y3 = zip(*data3)
@@ -31,8 +34,8 @@ def genre_comparison(title, data1, data2, data3):
     ax[1,0].set_xlim([0,60]);
 
     ax[1,1].barh(x,y, color = 'red', label = 'Over 1');
-    ax[1,1].barh(x2,y2,  color = 'blue', label = 'Over 2');
-    ax[1,1].barh(x3,y3,  color = 'green', label = 'Over 3');
+    ax[1,1].barh(x2,y2, color = 'blue', label = 'Over 2');
+    ax[1,1].barh(x3,y3, color = 'green', label = 'Over 3');
     ax[1,1].legend();
     ax[1,1].set_title('Most Popular Genre Based on Ratio');
     ax[1,1].set_xlabel('Frequency')
@@ -60,7 +63,10 @@ def worst_and_best(top, worst):
     ax[1].set_ylabel("Genre");
     ax[1].set_title("Worst Genre from Worst 100 Movies");
     ax[1].legend(["Bad Tags"]);
+
     
+#Simple plot for a bar graph. 
+#For the genre with no restrictions
 def top_genre(_list):
     ax = plt.subplot()
     x, y = zip(*_list)
@@ -69,6 +75,7 @@ def top_genre(_list):
     ax.set_xlabel('Frequency');
     ax.set_ylabel('Genre');
 
+#Read connection, grouped by directors name
 def read_sql(conn):    
     return pd.read_sql(
         """SELECT persons.primary_name AS 'Director Name', COUNT(movie_id) AS 'Number of Movies'
@@ -82,7 +89,7 @@ def read_sql(conn):
         GROUP BY persons.primary_name
         LIMIT 5
         """, conn)
-
+#Read connection, grouped by movies that have a higher average and with directors with more than 5 movies
 def top_directors(conn):
     return pd.read_sql("""SELECT primary_title, persons.primary_name, COUNT(movie_id), AVG(averagerating)
     FROM movie_ratings
@@ -99,47 +106,71 @@ def top_directors(conn):
     """, conn)
     
 def top_dir_and_movies(conn):
-    return pd.read_sql("""SELECT primary_title AS 'Movie Title'
+    return pd.read_sql(
+        """SELECT primary_title AS 'Movie Title'
                 ,persons.primary_name AS 'Director Name'
                 , COUNT(movie_id) AS 'Number of Movies' 
                 ,AVG(averagerating) AS 'Average Movie Ratings'
-                FROM movie_ratings
-                JOIN movie_basics
-                    USING (movie_id)
-                JOIN directors
-                    USING (movie_id)
-                JOIN persons
-                    USING (person_id)
-                WHERE primary_title IN ('Spider-Man: Into the Spider-Verse','Avengers: Infinity War','How to Train Your Dragon','Guardians of the Galaxy','Zootopia',
-                                        'Thor: Ragnarok','A Star Is Born','Captain America: Civil War','Big Hero 6', 'Guardians of the Galaxy Vol. 2',
-                                        'Spider-Man: Homecoming','Ant-Man','Iron Man 3','Aquaman','Ant-Man and the Wasp','Logan','Ralph Breaks the Internet',
-                                        'X-Men: Apocalypse','Thor','Thor: The Dark World','Beauty and the Beast','Kong: Skull Island',
-                                        'Pirates of the Caribbean: Dead Men Tell No Tales',
-                                        'Justice League','Batman v Superman: Dawn of Justice','The Mule')
-                GROUP BY primary_title
-                HAVING AVG(averagerating) > 6.332729 AND COUNT(movie_id) > 5
+        FROM movie_ratings
+        JOIN movie_basics
+            USING (movie_id)
+        JOIN directors
+            USING (movie_id)
+        JOIN persons
+            USING (person_id)
+        WHERE primary_title IN (
+            'Spider-Man: Into the Spider-Verse','Avengers: Infinity War','How to Train Your Dragon','Guardians of the Galaxy','Zootopia',
+            'Thor: Ragnarok','A Star Is Born','Captain America: Civil War','Big Hero 6', 'Guardians of the Galaxy Vol. 2',
+            'Spider-Man: Homecoming','Ant-Man','Iron Man 3','Aquaman','Ant-Man and the Wasp','Logan','Ralph Breaks the Internet',
+            'X-Men: Apocalypse','Thor','Thor: The Dark World','Beauty and the Beast','Kong: Skull Island',
+            'Pirates of the Caribbean: Dead Men Tell No Tales',
+            'Justice League','Batman v Superman: Dawn of Justice','The Mule')
+        GROUP BY primary_title
+        HAVING AVG(averagerating) > 6.332729 AND COUNT(movie_id) > 5
 
-                ORDER BY AVG(averagerating) DESC
-                LIMIT 10
-                """, conn)
+        ORDER BY AVG(averagerating) DESC
+        LIMIT 10
+        """, conn)
+## Not used in final product ##
+def graph_wout_outliers(data):
+    
+    fig, ax = plt.subplots()
+    ax.scatter(scat_x, scat_y , alpha= .2, color = 'green')
+    #line = plt.axvline(200000000, color = 'red');
+    ax.set_xlabel('Production Budget')
+    ax.set_xticks(list(range(0,100000000,10000000)));
 
+    #ax.set_xticks([0,10000000,20000000]);
+    ax.set_xlim(0,100000000)
+    ax.set_ylim(1)
+    x = list(range(0,74000000,1000))
+    y = [6-x2/15000000 for x2 in x]
+    ax.axhline(outlier_removed['prod_world_ratio'].median(), color = 'blue', label = 'Median ratio');
+    ax.axvline(outlier_removed['production_budget'].median(), color = 'cyan', label = 'Median Budget')
+    ax.legend()
+    ax.plot(x, y, color = 'red', alpha = .5)
+    
 def graph_budgets(data):
-    
-    
+    x_ticklabel = ([(10*x*.5) for x in range(0,9)])
+    x_ticklabel = [str(x) + 'M' for x in x_ticklabel]
+
+    x_1 = np.array(list(data['production_budget']))
+    y_1 = np.array(list(data['worldwide_gross']))
     fig, ax = plt.subplots(1,2, figsize = (15, 5))
     ax[0].scatter(data['production_budget'], data['prod_world_ratio']);
+    ax[0].set_xticks(list(range(0,450000000, 50000000)))
+    ax[0].set_xticklabels(x_ticklabel);
     ax[0].set_xlabel('Production Budget');
     ax[0].set_ylabel('Ratio');
     ax[0].set_title('Budget vs Ratio');
-    
-    
+
+    a,b = np.polyfit(x_1,y_1,1)
     ax[1].scatter(data['production_budget'], data['worldwide_gross']);
     ax[1].set_xlabel('Production Budget');
     ax[1].set_ylabel('World Gross');
+    ax[1].set_xticks(list(range(0,450000000, 50000000)));
+    ax[1].set_xticklabels(x_ticklabel);
     ax[1].set_title('Budget vs Foreign Gross');
-    
-    ax[1].plot([0,400000000], [0,2000000000] ,color = 'red');
-    
-    #df1_and_2.plot.scatter('production_budget', 'worldwide_gross')
-#plt.plot([0,400000000], [0,2000000000] ,color = 'red');
-#df1_and_2.plot.scatter('production_budget', 'prod_world_ratio');
+    ax[1].set_xlim(0,400000000)
+    ax[1].plot(x_1,a*x_1+b,color = 'red', label = ('y = {}x{}').format(round(a,2), round(b)));
+    ax[1].legend()

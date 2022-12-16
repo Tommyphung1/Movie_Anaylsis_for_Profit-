@@ -15,11 +15,13 @@ We created another measurement, ratios for production budget and their domestic 
 3. Which director/s have the best record in making high quality movies?
 The main aspect we care about is whether or not a movie is profitable. 
 Biggest indicator are popular movies so we will be looking at past popular movies and comparing the budget they spent and their gross box office
-This may give insight to what type of movie makes them popular and inturn profitable. All of these questions are to make sure that a movie start off at the right foot to lead to a successful box office. 
+This may give insight to what type of movie makes them popular and inturn profitable. We first need to show the correlation between popular movie and profit as we will see later that a 'profitable' movie are always the most popular if we consider the scale of the movie. Investors would be more willing to invest if there is a certain guarentee on the movie's success. 
 
-## **Data Understanding** 
-Their are several dataset are will be pulled together to support the claim we will be making. The genres and popularity will be pulled from [The Movie DB](https://www.themoviedb.org/). [The Numbers](https://www.themoviedb.org/talk/5daf6eb0ae36680011d7e6ee) will be providing the profit and budget for the top movies. The names of the directors and their movies' ratings will come from [IMDB](https://www.imdb.com/) <br>
-Genre ID Conversion -  https://www.themoviedb.org/talk/5daf6eb0ae36680011d7e6ee 
+## **Data Understanding**
+Their are several dataset are will be pulled together to support the claim we will be making.  <br>
+[The Movie DB](https://www.themoviedb.org/) has data their popularity as well as a useful column, genre ID. All other attributes such as release data are not being used in this analysis. There was a helpful [forum](https://www.themoviedb.org/talk/5daf6eb0ae36680011d7e6ee) that explains the genre id to their respective genres. <br>
+[The Numbers](https://www.themoviedb.org/talk/5daf6eb0ae36680011d7e6ee) will be providing the profit and budget of the movies which can be sorted and filtered out to see how these movies perform, whether they are popular or highly rated. <br>
+[IMDB](https://www.imdb.com/) has an extensive database that contains movies, rating and people who worked on the movie. For this project, we will be specifically seeing the impact of movies based on their directors. <br>
 
 ## Methods
 The Movie DB needed to be cleaned with the proper format to take the list of genre. Once it was sorted by popularity and cleaned out of duplicates, the top and worst movies are extracted for analysis. Functions help count the amount a single genre appear in the dataset
@@ -89,7 +91,7 @@ Describe the structure of your repository and its contents, for example:
 ├── README.md                           <- The top-level README for reviewers of this project
 ├── movie_code.ipynb                    <- Narrative documentation of analysis in Jupyter notebook
 ├── Project_1.pdf         <- PDF version of project presentation
-├── code
+├── resources
 │   ├── __init__.py                     <- .py file that signals to python these folders contain packages
 │   ├── visualizations.py               <- .py script to create finalized versions of visuals for project
 │   ├── data_preparation.py             <- .py script used to pre-process and clean data
