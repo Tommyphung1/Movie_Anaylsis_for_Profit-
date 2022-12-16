@@ -1,3 +1,4 @@
 .ipynb_checkpoints/
-data/
 resources/Cutout_code.ipynb
+.gitattributes
+data/
