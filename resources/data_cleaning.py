@@ -63,15 +63,4 @@ def find_min_max(data):
         print('Max Outlier: ', max_out)
     
     return [min_out if min_out > 0 else 0, max_out]
-    #Determine a reasonable range of budget that gives the most benifical ratio possible
 
-#IQR = df_2['prod_world_ratio'].quantile(.75) - df_2['prod_world_ratio'].quantile(.25)
-#min_out = df_2['prod_world_ratio'].median() - IQR*1.5
-#max_out = df_2['prod_world_ratio'].median() + IQR*1.5
-
-#outlier_removed = df_2.loc[df_2['prod_world_ratio'] < 6.607385548232989]
-#outlier_removed['prod_world_ratio'].describe()
-#scat_x = outlier_removed['production_budget'].loc[outlier_removed['prod_world_ratio'] > 1]
-#scat_y = outlier_removed['prod_dom_ratio'].loc[outlier_removed['prod_world_ratio'] > 1]
-#outlier_removed['prod_world_ratio'].median()
-#outlier_removed['production_budget'].quantile(.75)

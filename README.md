@@ -3,11 +3,10 @@
 **Authors**: Tommy Phung
 
 ## **Overview**
-Present business stakeholder with recommendations for the production of a movie that would lead to the most profitable movie.
-We will look at movie genre, popularity, production budget, domestic gross, foreign gross and director ranking. 
-The top movies are ranked and their genre are totaled to see if we can see a trend. The results shows a district popularity to action, adventure, sci-fi and fantasy 
+Microsoft is planning to start making movies. We will look at movie genres, popularity, production budget, domestic gross, foreign gross and director's movie rankings. 
+The top movies are ranked and their genres are totaled to see if we can correlate genres and popularity. The results shows a distinct popularity to action, adventure, sci-fi and fantasy 
 as well as a poor performance to documentry, horror, thriller and comedy.  <br>
-We created another measurement, ratios for production budget and their domestic gross and foreign gross. Strictly speaking, a ratio of over 1 is a net profit for the movie so I tried find the most optimal budget to garentee the highest likely profit, ie the greatest ratio. Lastly, with the top movies from the previous data, we can determine the best director to produce the movie. IMDB provide the individual performance of the directors to see if they already have high performing movies from The Movie DB. Picking from the top rated directors will give another advangate for the movie success. 
+We created another measurement, ratios for production budget and their domestic gross and foreign gross. Strictly speaking, a ratio of over 1 is a net profit for the movie so movies with a ratio greater than one is condiered. Lastly, with the top movies from the previous data, we can determine the best director to produce the movie. IMDB provide the individual performance of the directors to see if they already have high performing movies from The Movie DB. Picking from the top rated directors will give another advangate for the movie success. 
 
 ## **Business Understanding**
 1. What aspect of a movie are the most profitable
@@ -23,6 +22,11 @@ Their are several dataset are will be pulled together to support the claim we wi
 [The Numbers](https://www.themoviedb.org/talk/5daf6eb0ae36680011d7e6ee) will be providing the profit and budget of the movies which can be sorted and filtered out to see how these movies perform, whether they are popular or highly rated. <br>
 [IMDB](https://www.imdb.com/) has an extensive database that contains movies, rating and people who worked on the movie. For this project, we will be specifically seeing the impact of movies based on their directors. <br>
 
+This project aims to present Microsoft with recommendations for the production of a movie that would lead to the most profitable movie.
+We will look at movie genre, popularity, production budget, domestic gross, foreign gross and director ranking. 
+The top movies are ranked and their genre are totaled to see if we can see a trend. The results shows a district popularity to action, adventure, sci-fi and fantasy 
+as well as a poor performance to documentry, horror, thriller and comedy.  <br>
+We created another measurement, ratios for production budget and their domestic gross and foreign gross. Strictly speaking, a ratio of over 1 is a net profit for the movie so I tried find the most optimal budget to garentee the highest likely profit, ie the greatest ratio. Lastly, with the top movies from the previous data, we can determine the best director to produce the movie. IMDB provide the individual performance of the directors to see if they already have high performing movies from The Movie DB. Picking from the top rated directors will give another advangate for the movie success. 
 ## Methods
 The Movie DB needed to be cleaned with the proper format to take the list of genre. Once it was sorted by popularity and cleaned out of duplicates, the top and worst movies are extracted for analysis. Functions help count the amount a single genre appear in the dataset
 The Numbers needed the ratio to be added to the set and for each of the grosses it supplied. Comparing the movies genre and their ratios, will show us which genre is profitable. We can then compare the two datas to see if they corralate. 

@@ -105,6 +105,7 @@ def top_directors(conn):
     ORDER BY AVG(averagerating) DESC
     """, conn)
     
+
 def top_dir_and_movies(conn):
     return pd.read_sql(
         """SELECT primary_title AS 'Movie Title'
@@ -131,46 +132,34 @@ def top_dir_and_movies(conn):
         ORDER BY AVG(averagerating) DESC
         LIMIT 10
         """, conn)
-## Not used in final product ##
-def graph_wout_outliers(data):
-    
-    fig, ax = plt.subplots()
-    ax.scatter(scat_x, scat_y , alpha= .2, color = 'green')
-    #line = plt.axvline(200000000, color = 'red');
-    ax.set_xlabel('Production Budget')
-    ax.set_xticks(list(range(0,100000000,10000000)));
 
-    #ax.set_xticks([0,10000000,20000000]);
-    ax.set_xlim(0,100000000)
-    ax.set_ylim(1)
-    x = list(range(0,74000000,1000))
-    y = [6-x2/15000000 for x2 in x]
-    ax.axhline(outlier_removed['prod_world_ratio'].median(), color = 'blue', label = 'Median ratio');
-    ax.axvline(outlier_removed['production_budget'].median(), color = 'cyan', label = 'Median Budget')
-    ax.legend()
-    ax.plot(x, y, color = 'red', alpha = .5)
-    
+#Final Graph for budget and ratios and budget and world gross
+#Takes in a column of a data set and plot it against two different columns
 def graph_budgets(data):
-    x_ticklabel = ([(10*x*.5) for x in range(0,9)])
-    x_ticklabel = [str(x) + 'M' for x in x_ticklabel]
-
-    x_1 = np.array(list(data['production_budget']))
-    y_1 = np.array(list(data['worldwide_gross']))
+    #Make ticks to have them in a millions
+    x_ticklabel = ([(10*x*.5) for x in range(0,9)])    
+    x_ticklabel = [str(x) + 'M' for x in x_ticklabel]    #Add M for millions    
+    
+    tick_length_x = list(range(0,450000000, 50000000))
     fig, ax = plt.subplots(1,2, figsize = (15, 5))
+    
     ax[0].scatter(data['production_budget'], data['prod_world_ratio']);
-    ax[0].set_xticks(list(range(0,450000000, 50000000)))
-    ax[0].set_xticklabels(x_ticklabel);
+    ax[0].set_title('Budget vs Ratio');
     ax[0].set_xlabel('Production Budget');
     ax[0].set_ylabel('Ratio');
-    ax[0].set_title('Budget vs Ratio');
-
-    a,b = np.polyfit(x_1,y_1,1)
+    ax[0].set_xticks(tick_length_x)
+    ax[0].set_xticklabels(x_ticklabel);
+    
     ax[1].scatter(data['production_budget'], data['worldwide_gross']);
     ax[1].set_xlabel('Production Budget');
     ax[1].set_ylabel('World Gross');
-    ax[1].set_xticks(list(range(0,450000000, 50000000)));
-    ax[1].set_xticklabels(x_ticklabel);
     ax[1].set_title('Budget vs Foreign Gross');
-    ax[1].set_xlim(0,400000000)
+    ax[1].set_xticks(tick_length_x);
+    ax[1].set_xticklabels(x_ticklabel);
+
+    #Make a line of best fit to see it there is a relationship
+    x_1 = np.array(list(data['production_budget']))
+    y_1 = np.array(list(data['worldwide_gross']))
+    a,b = np.polyfit(x_1,y_1,1)
     ax[1].plot(x_1,a*x_1+b,color = 'red', label = ('y = {}x{}').format(round(a,2), round(b)));
     ax[1].legend()
