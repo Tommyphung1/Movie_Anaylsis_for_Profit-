@@ -2,3 +2,4 @@
 resources/Cutout_code.ipynb
 .gitattributes
 data/
+__pycache__/
