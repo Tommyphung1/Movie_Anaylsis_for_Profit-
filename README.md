@@ -78,7 +78,7 @@ For any additional questions, please contact **Tommy Phung, phungtommy109@gmail.
 ├── __init__.py                         <- .py file that signals to python these folders contain packages
 ├── README.md                           <- The top-level README for reviewers of this project
 ├── movie_code.ipynb                    <- Narrative documentation of analysis in Jupyter notebook
-├── Project_1.pdf                       <- PDF version of project presentation
+├── Phase_1_Project_Presentation.pdf    <- PDF version of project presentation
 ├── resources
 │   ├── __init__.py                     <- .py file that signals to python these folders contain packages
 │   ├── visualizations.py               <- .py script to create finalized versions of visuals for project

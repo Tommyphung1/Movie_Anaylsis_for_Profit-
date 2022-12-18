@@ -136,28 +136,34 @@ def top_dir_and_movies(conn):
 #Final Graph for budget and ratios and budget and world gross
 #Takes in a column of a data set and plot it against two different columns
 def graph_budgets(data):
-    #Make ticks to have them in a millions
-    x_ticklabel = ([(10*x*.5) for x in range(0,9)])    
-    x_ticklabel = [str(x) + 'M' for x in x_ticklabel]    #Add M for millions    
-    
-    tick_length_x = list(range(0,450000000, 50000000))
     fig, ax = plt.subplots(1,2, figsize = (15, 5))
     
-    ax[0].scatter(data['production_budget'], data['prod_world_ratio']);
+    x_ticklabel = ([int(10*x) for x in range(0,8)])    
+    x_ticklabel = [str(x) + 'M' for x in x_ticklabel]    #Add M for millions    
+    tick_length_x = list(range(0,71000000, 10000000))
+
+    y_ticklabel = ([(y*50) for y in range(0,9)])    
+    y_ticklabel = [str(y) + 'M' for y in y_ticklabel]    #Add M for millions  
+    
+    tick_length_y = list(range(0,450000000, 50000000))
+
+    ax[0].scatter(data['production_budget'], data['prod_world_ratio'], alpha = .5);
     ax[0].set_title('Budget vs Ratio');
     ax[0].set_xlabel('Production Budget');
     ax[0].set_ylabel('Ratio');
-    ax[0].set_xticks(tick_length_x)
-    ax[0].set_xticklabels(x_ticklabel);
-    
+
     ax[1].scatter(data['production_budget'], data['worldwide_gross']);
     ax[1].set_xlabel('Production Budget');
     ax[1].set_ylabel('World Gross');
     ax[1].set_title('Budget vs Foreign Gross');
+
+    ax[0].set_xticks(tick_length_x)
+    ax[0].set_xticklabels(x_ticklabel);
     ax[1].set_xticks(tick_length_x);
     ax[1].set_xticklabels(x_ticklabel);
+    ax[1].set_yticks(tick_length_y);
+    ax[1].set_yticklabels(y_ticklabel);
 
-    #Make a line of best fit to see it there is a relationship
     x_1 = np.array(list(data['production_budget']))
     y_1 = np.array(list(data['worldwide_gross']))
     a,b = np.polyfit(x_1,y_1,1)
