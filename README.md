@@ -3,10 +3,9 @@
 **Authors**: Tommy Phung
 
 ## **Overview**
-Microsoft is planning to start making movies. We will look at movie genres, popularity, production budget, domestic gross, foreign gross and director's movie rankings. 
-The top movies are ranked and their genres are totaled to see if we can correlate genres and popularity. The results shows a distinct popularity to action, adventure, sci-fi and fantasy 
-as well as a poor performance to documentry, horror, thriller and comedy.  <br>
-We created another measurement, ratios for production budget and their domestic gross and foreign gross. Strictly speaking, a ratio of over 1 is a net profit for the movie so movies with a ratio greater than one is condiered. Lastly, with the top movies from the previous data, we can determine the best director to produce the movie. IMDB provide the individual performance of the directors to see if they already have high performing movies from The Movie DB. Picking from the top rated directors will give another advangate for the movie success. 
+Microsoft is planning to start making movies and we are tasked to give the new department movie recommendations to help them start. We will look at movie genres, popularity, production budget, domestic gross, foreign gross and director's movie rankings from various different websites to back our claims. The top movies are ranked and their genres are totaled to see if we can correlate genres and popularity. **The results shows a distinct popularity to action, adventure, sci-fi and fantasy as well as a poor performance to documentry, horror, thriller and comedy.** These genres were both profitable and successful.  <br>
+**Production budget have a small influence in world gross box office with a 1:2 ratio of dollar returned for every dollar spent.** A created variable ended being a bad metric to determine success. <br>
+Lastly, with the top movies from the previous data, **we can determine the best director to produce the movie**. IMDB provide the individual performance of the directors to see if they already have high performing movies from The Movie DB. Picking from the top rated directors will give another advangate for the movie success.
 
 ## **Business Understanding**
 1. What aspect of a movie are the most profitable
@@ -34,13 +33,13 @@ IMBD will have the data grouped by directors and their movies average ratings to
 
 ## Results
 The top genres from the top movies are action, adventure, sci-fi and fantasy while the worst genres are documentary, horror, thriller and comedy. Drama is in a grey area that was found in the top and worst genres for the list of movies. 
-![The Worst and Best genre](https://github.com/Tommyphung1/Project1/blob/21d2a3cde350bf1c2cea1f7d3c798be8e6582f6f/pictures/Best%20and%20Worst%20Genre.PNG)
+![The Worst and Best genre](./pictures/Best and Worst Genre.PNG)
 
 Production Cost vs Ratio and World Gross Box Office <br>
-![Production Budget vs Ratio](https://github.com/Tommyphung1/Project1/blob/21d2a3cde350bf1c2cea1f7d3c798be8e6582f6f/pictures/Budget%20Graphs.png)
+![Production Budget vs Ratio](./pictures/Budget Ratio and World Gorss.JPG)
 
 There are exemplary directors whom have movies in our top list of movies. Not only do they have made several films with an average rating of 7 and above, but also experienced with at least 5 movies produced. 
-![The Best Directors](https://github.com/Tommyphung1/Project1/blob/21d2a3cde350bf1c2cea1f7d3c798be8e6582f6f/pictures/Top%20Ten%20Directors%20and%20Their%20movies.PNG)
+![The Best Directors](./pictures/Top Ten Directors and Their movies.PNG)
 
 List Of directors
 1. Anthony Russo
@@ -68,7 +67,7 @@ This project primary focus on attributes before movie production such as budget,
 + **Seeing whether or not, new directors are performing better than old directors.** There were several movies that have been sequelized and newer directors making highly rated movies. Analysing this may give us insight on whether or not, newer talents should be producing movies instead of the experience director we recommended. 
 ## For More Information
 
-Please review our full analysis in [Jupyter Notebook](./movie_code.ipynb) or the [presentation](./Phase_1_Project_Presentation.pdf).
+Please review our full analysis in [Jupyter Notebook](./movie_code.ipynb) or the [presentation](./presentation.pdf).
 
 For any additional questions, please contact **Tommy Phung, phungtommy109@gmail.com**
 

@@ -9,9 +9,20 @@ convert = {'28' : 'Action', '12': 'Adventure', '35': 'Comedy', '99': 'Documentar
 
 
 # Function count all the genre and group them
-def count_genre(df_list):
+def count_genre(df_list, column):
+    '''
+    Look into a dataframe's column and count the number of times an element appears. 
+    convert dictionary can be changed based on what is expected in the column. 
+    Was combined with the converting operation for this project
+    
+    Input: 
+            df_list (DataFrame or Dict): original data frame 
+            column (string): The column name to count 
+    Output:
+            list: A sorted tuple with the count of a given element is found from the convert dictionary
+    '''
     genre_count = {}    #https://www.themoviedb.org/talk/5daf6eb0ae36680011d7e6ee
-    for genre in df_list['genre_ids']:    #Take the list of genre ids
+    for genre in df_list[column]:    #Take the list of genre ids
         for ids in genre:    #For each element in the list, multiple genre for one movie
             if(genre_count.get(convert[ids])):    #Check if it exists,
                 genre_count[convert[ids]] += 1    #Convert the ID and add 1 to counter
@@ -21,6 +32,14 @@ def count_genre(df_list):
 
 #Function strips a string number with $ and ,'s into an integer
 def clean_df(df_column):
+    '''
+    Takes a list or a column that had a format of ${###,###} to convert to a single integer
+    
+    Input: 
+            df_column (DataFrameSeries): The column of a dataframe 
+    Output:
+            changed_df (DataFrameSeries): The column with the corrected format
+    '''
     changed_df = df_column.map(lambda x: x.strip('$'))
     changed_df = changed_df.map(lambda x: x.replace(',',''))  
     changed_df = changed_df.astype('int64')
