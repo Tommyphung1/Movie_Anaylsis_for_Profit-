@@ -6,6 +6,7 @@ import numpy as np
 #Function that take in three tuples and plot them on a subplot.
 #The final subplot are plotted together to see the difference between the three lists
 def genre_comparison(title, data1, data2, data3):
+    
     fig , ax = plt.subplots(2,2, figsize = (15, 10))
     x, y = zip(*data1)
     x2, y2 = zip(*data2)
