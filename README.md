@@ -17,9 +17,9 @@ This may give insight to what type of movie makes them popular and inturn profit
 
 ## **Data Understanding**
 Their are several dataset are will be pulled together to support the claim we will be making.  <br>
-[The Movie DB](https://www.themoviedb.org/) has data their popularity as well as a useful column, genre ID. All other attributes such as release data are not being used in this analysis. There was a helpful [forum](https://www.themoviedb.org/talk/5daf6eb0ae36680011d7e6ee) that explains the genre id to their respective genres. <br>
-[The Numbers](https://www.themoviedb.org/talk/5daf6eb0ae36680011d7e6ee) will be providing the profit and budget of the movies which can be sorted and filtered out to see how these movies perform, whether they are popular or highly rated. <br>
-[IMDB](https://www.imdb.com/) has an extensive database that contains movies, rating and people who worked on the movie. For this project, we will be specifically seeing the impact of movies based on their directors. <br>
+![The Movie DB](https://www.themoviedb.org/) has data their popularity as well as a useful column, genre ID. All other attributes such as release data are not being used in this analysis. There was a helpful [forum](https://www.themoviedb.org/talk/5daf6eb0ae36680011d7e6ee) that explains the genre id to their respective genres. <br>
+![The Numbers](https://www.themoviedb.org/talk/5daf6eb0ae36680011d7e6ee) will be providing the profit and budget of the movies which can be sorted and filtered out to see how these movies perform, whether they are popular or highly rated. <br>
+![IMDB](https://www.imdb.com/) has an extensive database that contains movies, rating and people who worked on the movie. For this project, we will be specifically seeing the impact of movies based on their directors. <br>
 
 This project aims to present Microsoft with recommendations for the production of a movie that would lead to the most profitable movie.
 We will look at movie genre, popularity, production budget, domestic gross, foreign gross and director ranking. 
@@ -33,13 +33,13 @@ IMBD will have the data grouped by directors and their movies average ratings to
 
 ## Results
 The top genres from the top movies are action, adventure, sci-fi and fantasy while the worst genres are documentary, horror, thriller and comedy. Drama is in a grey area that was found in the top and worst genres for the list of movies. 
-![The Worst and Best genre](./pictures/Best and Worst Genre.PNG)
+![The Worst and Best genre](https://github.com/Tommyphung1/Project1/blob/941b7df288ab9ac9ea8f8a435eddd4b3bbac6931/pictures/Best%20and%20Worst%20Genre.PNG)
 
 Production Cost vs Ratio and World Gross Box Office <br>
-![Production Budget vs Ratio](./pictures/Budget Ratio and World Gorss.JPG)
+![Production Budget vs Ratio](https://github.com/Tommyphung1/Project1/blob/941b7df288ab9ac9ea8f8a435eddd4b3bbac6931/pictures/Budget%20Ratio%20and%20World%20Gorss.JPG)
 
 There are exemplary directors whom have movies in our top list of movies. Not only do they have made several films with an average rating of 7 and above, but also experienced with at least 5 movies produced. 
-![The Best Directors](./pictures/Top Ten Directors and Their movies.PNG)
+![The Best Directors](https://github.com/Tommyphung1/Project1/blob/941b7df288ab9ac9ea8f8a435eddd4b3bbac6931/pictures/Top%20Ten%20Directors%20and%20Their%20movies.PNG)
 
 List Of directors
 1. Anthony Russo
