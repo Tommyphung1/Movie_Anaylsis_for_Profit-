@@ -65,7 +65,7 @@ This project primarily focuses on attributes before movie production such as bud
 + **Seeing whether or not, there are other measures of success.** Merch sold, and the number of movies in a series may be some examples of success. 
 ## For More Information
 
-Please review our full analysis in [Jupyter Notebook](./movie_code.ipynb) or the [presentation](./presentation.pdf).
+Please review our full analysis in [Jupyter Notebook](./EDA_Movie_Notebook.ipynb) or the [presentation](./presentation.pdf).
 
 For any additional questions, please contact **Tommy Phung, phungtommy109@gmail.com**
 
@@ -73,7 +73,7 @@ For any additional questions, please contact **Tommy Phung, phungtommy109@gmail.
 
 ```                  
 ├── README.md                           <- The top-level README for reviewers of this project
-├── movie_code.ipynb                    <- Narrative documentation of analysis in Jupyter notebook
+├── EDA_Movie_Notebook.ipynb            <- Narrative documentation of analysis in Jupyter notebook
 ├── presentation.pdf                    <- PDF version of project presentation
 ├── resources
 │   ├── __init__.py                     <- .py file that signals to python these folders contain packages
